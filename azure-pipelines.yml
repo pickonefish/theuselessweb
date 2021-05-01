@@ -1,0 +1,59 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+  branches:
+    include:
+      - master
+  paths:
+    exclude:
+      - README.md
+      - azure-pipeline.app.yml
+pr: none
+
+jobs:
+  - job: "Build_npm_and_Docker_Image"
+    displayName: "Build npm And Docker Image"
+    pool: Delta IT Ubuntu 1604
+    timeoutInMinutes: 120
+    workspace:
+      clean: outputs
+    variables:
+      system.debug: true
+
+    steps:
+      - task: Docker@2
+        inputs:
+          containerRegistry: 'IT-DOCKER'
+          command: 'login'
+
+      - task: Bash@3
+        displayName: 'Get Version'
+        inputs:
+          targetType: 'inline'
+          script: |
+            DATE=`date '+%Y%m%d-%H%M%S'`
+            VERSION_TAG=`git describe --always --abbrev=7`
+            echo $DATE.$VERSION_TAG
+            TAG=it-docker.deltaww.com/theuselessweb-frontend:$DATE.$VERSION_TAG
+            echo $TAG
+            echo "##vso[task.setvariable variable=TAG]$TAG"
+            echo $DATE.$VERSION_TAG | tee version.txt
+          failOnStderr: false
+          workingDirectory: app
+        enabled: true
+
+      - task: Bash@3
+        displayName: 'Build Docker Image Multi Stage'
+        inputs:
+          targetType: 'inline'
+          script: |
+            docker build -t $TAG .
+            docker push $TAG
+            docker image prune -f
+            docker container prune -f
+          failOnStderr: true
+          workingDirectory: app
+        enabled: true
