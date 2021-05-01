@@ -1,0 +1,227 @@
+
+<!DOCTYPE HTML>
+
+<html lang="en">
+
+<!--
+Original Code:
+*(c) Copyright 2011 Simone Masiero. Some Rights Reserved.
+*This work is licensed under a Creative Commons Attribution-Noncommercial-Share Alike 3.0 License
+
+Modified Version:
+*(c) Copyright 2012 HackerTyper.com. Some Rights Reserved.
+-->
+
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T8RV93C');</script>
+<!-- End Google Tag Manager -->
+<style type="text/css">
+* {/* for demo only*/
+    margin:0px;
+    padding:0px
+}
+html, body {
+    height:100%;/* needed to base 100% height on something known*/
+   // text-align:center;
+}
+.outer {
+    //width:760px;
+    //background:#ffffcc;
+    margin:auto;
+    min-height:100%;
+    margin-top:0px;/*footer height - this drags the outer 40px up through the top of the monitor */
+    text-align:left;
+}
+* html .outer {
+    height:100%
+}
+#header {
+  //  background:red;
+    border-top:40px solid #fff; /* soak up negative margin and allows header to start at top of page*/
+}
+.footer {/* footer now sits at bottom of window*/
+  //  background:red;
+    //width:760px;
+    margin:auto;
+    height:40px;/* must match negative margin of #outer */
+    clear:both;
+}
+/*Opera Fix*/
+body:before {/* thanks to Maleika (Kohoutec)*/
+    content:"";
+    height:100%;
+    float:left;
+    width:0;
+    margin-top:-32767px;/* thank you Erik J - negate effect of float*/
+}
+h1, h2, p {
+    padding:0 10px;
+}
+.outer:after {/* thank you Erik J - instead of using display table for ie8*/
+    clear:both;
+    display:block;
+    height:1%;
+    content:" ";
+}
+
+.settings {
+        border: #11a91b;
+        background-color: black;
+        border-style: solid;
+        border-width: thin;
+        position: absolute;
+        width: 520px;
+        height: 520px;
+        left: 50%;
+        top: 40%;
+        margin: -200px 0 0 -200px;
+        padding: 10px;
+      }
+
+      .settings-btn {
+        border: #11a91b;
+        border-style: solid;
+        border-width: thin;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        padding: 15px;
+
+        width: 165px;
+        height: 15px;
+        cursor: pointer;
+        margin: -96px 0 0 -81px;
+      }
+
+      .settings-btn:hover {
+        background-color: #11a91b;
+      }
+
+      .adunit {
+        background-color: black;
+        width: 336px;
+        height: 280px;
+        left: 50%;
+        top: 50%;
+        position: absolute;
+        cursor: pointer;
+        margin: -26px 0 0 -169px;
+      }
+
+      .close {
+        cursor: pointer;
+      }
+</style>
+<meta charset="utf-8">
+
+<title>Hacker Typer</title>
+<meta name="keywords" content="Objective-C,C,C++,Rust,Swift,Kotlin,Python,Ruby,Javascript,HTML&CSS,programming,programmer,web developer,software developer">
+
+<link href="style.css" rel="stylesheet" type="text/css" />
+
+<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js' type='text/javascript'></script>
+
+<script src='script.js' type='text/javascript'></script>
+
+<script type='text/javascript'>
+
+        Typer.speed=3;
+
+        Typer.file='code.txt';
+
+        Typer.init();
+
+</script>
+
+</head>
+
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T8RV93C"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<div id='console' class="outer">
+
+</div>
+<div id='menu' class="footer">
+<table width="90%">
+<tr>
+<td><a href="#" id="showhelp"><span class="inverse">Ctrl+H</span>&nbsp;Help?</a></td>
+<td><a href="http://find-dental-plans.com?t202id=53208"  target="_blank"><span class="inverse">Ctrl+F</span>&nbsp;Save 10%-60% On Dental Work</a></td>
+<td><a href="https://202.redirexit.com/tracking202/redirect/dl.php?t202id=23218&c1=LP3&t202kw=ncpro"  target="_blank"><span class="inverse">Ctrl+N</span>&nbsp;ClipperPro designed by surgeons</a></td>
+<td><a href="https://dealsupdater.com"  target="_blank"><span class="inverse">Ctrl+G</span>&nbsp;Get Discounts</a></td>
+<td><a href="https://drd.sh/5aWvDD/"  target="_blank"><span class="inverse">Ctrl+D</span>&nbsp;$30 DoorDash Credit</a></td>
+<td><a href="http://visualsitesearch.com"  target="_blank"><span class="inverse">Ctrl+E</span>&nbsp;Visual eBay</a></td>
+</tr>
+
+</table>
+</div>
+<div id="settings" class="settings">
+      <h1>
+        Welcome To HackerTyper
+        <span id="close_welcome" class="close">[CLOSE X]</span>
+      </h1>
+      <br /><br />
+      <div>
+        <span style="font-weight: bold"> Quick Start Instructions:</span><br />
+        Start typing on the keyboard to 'code'<br />
+        <br />
+        Hit ALT 3 times for "Access Granted" <br />
+        Hit CAPS LOCK 3 for"Access Denied" <br />
+        Hit ESCAPE to clear "Access Denied/Granted" <br />
+      </div>
+      <span id="settings-btn" class="settings-btn">Start HackerTyping...</span>
+
+      <div class="adunit">
+<a href="http://find-dental-plans.com/?t202id=53208&t202kw=htb" target="_blank"><img src="dental300x250.png" width="300" height="250"></a>
+    </div>
+    </div>
+    <script>
+      document
+        .getElementById('close_welcome')
+        .addEventListener('click', function () {
+          $('.settings').hide();
+        });
+
+        document
+        .getElementById('settings-btn')
+        .addEventListener('click', function () {
+          $('.settings').hide();
+        });
+
+        document
+        .getElementById('showhelp')
+        .addEventListener('click', function () {
+          $('.settings').show();
+        });
+    </script>
+<script src="//static.getclicky.com/js" type="text/javascript"></script>
+<script type="text/javascript">try{ clicky.init(66417119); }catch(e){}</script>
+
+<script async defer data-domain="hackertyper.com" src="https://sjbjk.com/js/plausible.js"></script>
+
+<!-- end ht code -->
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-38069369-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+        </body>
+
+</html>
+
